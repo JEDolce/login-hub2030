@@ -1,18 +1,10 @@
 // Set up the database with Sequelize ORM
-const dbConfig = require("../config/config");
+const { Sequelize, DataTypes } = require('sequelize');
+const { dbConfig } = require("../config/config");
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
-    dialect: dbConfig.dialect,
-    operatorsAliases: false,
-
-    pool: {
-        max: dbConfig.pool.max,
-        min: dbConfig.pool.min,
-        acquire: dbConfig.pool.acquire,
-        idle: dbConfig.pool.idle
-    }
+const sequelize = new Sequelize(
+    `postgres://${dbConfig.USER}:${dbConfig.PASSWORD}@${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+    dialect: "postgres"
 })
 
 // Check if connection is done
@@ -23,11 +15,10 @@ sequelize.authenticate().then(() => {
 })
 
 const db = {};
-
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // Connecting to model
-db.users = require('./userModel')(sequelize, Sequelize);
+db.users = require('./userModel')(sequelize, DataTypes);
 
 module.exports = db;

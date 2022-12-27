@@ -1,8 +1,8 @@
 const dotenv = require('dotenv').config();
 
-module.export = {
-    USER: process.env.PGUSER || "postgres",
-    PASSWORD: process.env.PGUPASSWORD || "postgres",
+const dbConfig = {
+    USER: process.env.PGUSER || "jedolce",
+    PASSWORD: process.env.PGUPASSWORD || "jedolce",
     HOST: process.env.PGHOST || 'localhost',
     PORT: process.env.PGPORT || 5432,
     DB: process.env.PGDATABASE || 'hublogindb',
@@ -13,6 +13,10 @@ module.export = {
         acquire: 30000,
         idle: 10000
     }
+}
+
+module.exports = {
+    dbConfig
 }
 
 /*

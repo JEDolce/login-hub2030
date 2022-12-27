@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const sequelize = require('sequelize');
 const cookieParser = require('cookie-parser');
-const errorHandler = require('./middlewares/errorMiddleware');
+const { errorHandler } = require('./middlewares/errorMiddleware');
 const db = require('./models');
 const userRoutes = require('./routes/userRoutes');
 
