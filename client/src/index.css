@@ -43,7 +43,7 @@ h3 {
   text-align: center;
 }
 
-.header {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,26 +52,26 @@ h3 {
   margin-bottom: 60px;
 }
 
-.header ul {
+.navbar ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header ul li {
+.navbar ul li {
   margin-left: 20px;
 }
 
-.header ul li a {
+.navbar ul li a {
   display: flex;
   align-items: center;
 }
 
-.header ul li a:hover {
+.navbar ul li a:hover {
   color: #777;
 }
 
-.header ul li a svg {
+.navbar ul li a svg {
   margin-right: 5px;
 }
 
