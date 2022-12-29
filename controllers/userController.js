@@ -12,7 +12,7 @@ const register = async (req, res) => {
         const { userName, email, password } = req.body;
 
         if (!userName || !email || !password) {
-            res.status(400)
+            res.status(404)
             throw new Error('Please add all fields')
         }
 
@@ -56,7 +56,12 @@ const login = async (req, res) => {
         const { email, password } = req.body;
 
         // find user by email
-        const user = await User.findOne({ email });
+        // const user = await User.findOne({ email });
+        const user = await User.findOne({
+            where: {
+                email: email
+            }
+        });
 
         // if user email is found, compare passwords with bcrypt
         if (user) {
@@ -78,7 +83,7 @@ const login = async (req, res) => {
                 // send user data
                 return res.status(201).send(user);
             } else {
-                return res.status(401).send("Authentication failed");
+                return res.status(401).send("User not found");
             }
         } else {
             return res.status(401).send("Authentication failed");

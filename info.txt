@@ -19,6 +19,9 @@ Listar tablas en bases de datos:
 Salir de postgres:
     \q
 
+Salir de tabla:
+    q
+
 Crear base de datos / tabla:
     CREATE DATABASE <db-name>;
 
