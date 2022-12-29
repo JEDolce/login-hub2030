@@ -24,8 +24,8 @@ export const Intro = () => {
     return (
         <>
             <section className='heading'>
-                <h1>Welcome {user && user.name}</h1>
-                <p>Goals Dashboard</p>
+                <h1 style={{ textTransform: "capitalize" }}>Welcome {user && user.userName}</h1>
+                <p>Info</p>
             </section>
             <section className='content'>
 
