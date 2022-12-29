@@ -24,27 +24,28 @@ export const Login = () => {
             toast.error('Error')
         }
 
-        if (isSuccess || reset) {
+        if (isSuccess || user) {
             navigate('/')
         }
 
         dispatch(reset())
+
     }, [isError, isSuccess, user, message, navigate, dispatch])
 
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         }))
     };
 
     const onSubmit = (e) => {
-        e.preventDefautl();
+        e.preventDefault();
 
         const userData = {
             email,
             password
-        }
+        };
 
         dispatch(login(userData))
     };

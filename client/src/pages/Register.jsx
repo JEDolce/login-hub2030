@@ -37,7 +37,7 @@ export const Register = () => {
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         }))
     };
 
@@ -63,7 +63,7 @@ export const Register = () => {
 
     return (
         <>
-            <section>
+            <section className='heading'>
                 <h1>
                     <FaUser /> Register
                 </h1>
@@ -110,6 +110,7 @@ export const Register = () => {
                             id='passwordCheck'
                             name='passwordCheck'
                             value={passwordCheck}
+                            placeholder="Confirm password"
                             className='form-control'
                             onChange={onChange}
                         />
