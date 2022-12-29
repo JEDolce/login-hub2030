@@ -1,6 +1,7 @@
 {
   "name": "login-hub-client",
   "version": "0.1.0",
+  "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
@@ -13,7 +14,8 @@
     "react-icons": "^3.11.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "react-toastify": "^8.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

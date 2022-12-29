@@ -1,5 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaSignInAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, reset } from '../redux/authSlice';
+import { toast } from 'react-toastify';
+import { Spinner } from '../components/Spinner';
 
 export const Login = () => {
     const [formData, setFormData] = useState({
@@ -8,6 +13,23 @@ export const Login = () => {
     });
 
     const { email, password } = formData;
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { user, isError, isSuccess, isLoading, message } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        if (isError) {
+            toast.error('Error')
+        }
+
+        if (isSuccess || reset) {
+            navigate('/')
+        }
+
+        dispatch(reset())
+    }, [isError, isSuccess, user, message, navigate, dispatch])
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -18,7 +40,18 @@ export const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefautl();
-    }
+
+        const userData = {
+            email,
+            password
+        }
+
+        dispatch(login(userData))
+    };
+
+    if (isLoading) {
+        return <Spinner />
+    };
 
     return (
         <>
@@ -57,7 +90,6 @@ export const Login = () => {
                     </div>
                 </form>
             </section>
-
         </>
     )
 }
