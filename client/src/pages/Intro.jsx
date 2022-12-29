@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Spinner } from '../components/Spinner';
+
 
 export const Intro = () => {
+    const navigate = useNavigate();
+
+    const { user, isLoading } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+
+        if (!user) {
+            navigate('/login')
+        }
+
+    }, [user, navigate])
+
+    if (isLoading) {
+        return <Spinner />
+    }
+
     return (
-        <div>Intro</div>
+        <>
+            <section className='heading'>
+                <h1>Welcome {user && user.name}</h1>
+                <p>Goals Dashboard</p>
+            </section>
+            <section className='content'>
+
+            </section>
+        </>
     )
 }
