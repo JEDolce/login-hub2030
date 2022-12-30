@@ -8,13 +8,13 @@ import { Spinner } from '../components/Spinner';
 
 export const Register = () => {
     const [formData, setFormData] = useState({
-        username: "",
+        userName: "",
         email: "",
         password: "",
         passwordCheck: ""
     });
 
-    const { username, email, password, passwordCheck } = formData;
+    const { userName, email, password, passwordCheck } = formData;
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -48,7 +48,7 @@ export const Register = () => {
             toast.error('Passwords do not match!')
         } else {
             const userData = {
-                username,
+                userName,
                 email,
                 password
             };
@@ -70,14 +70,14 @@ export const Register = () => {
                 <p>Create an account</p>
             </section>
             <section>
-                <form className='form'>
+                <form className='form' onSubmit={onSubmit}>
                     <div className="form-group">
                         <input
                             type="text"
                             id='username'
-                            name='username'
+                            name='userName'
                             placeholder="Enter username"
-                            value={username}
+                            value={userName}
                             className='form-control'
                             onChange={onChange}
                         />
@@ -116,7 +116,7 @@ export const Register = () => {
                         />
                     </div>
                     <div className='form-group'>
-                        <button type='submit' className='btn btn-block' onSubmit={onSubmit}>Submit</button>
+                        <button type='submit' className='btn btn-block'>Submit</button>
                     </div>
                 </form>
             </section>
