@@ -65,9 +65,9 @@ export const Register = () => {
         <>
             <section className='heading'>
                 <h1>
-                    <FaUser /> Register
+                    <FaUser /> Registrar
                 </h1>
-                <p>Create an account</p>
+                <p>Crear una cuenta</p>
             </section>
             <section>
                 <form className='form' onSubmit={onSubmit}>
@@ -76,7 +76,7 @@ export const Register = () => {
                             type="text"
                             id='username'
                             name='userName'
-                            placeholder="Enter username"
+                            placeholder="Ingresá tu nombre"
                             value={userName}
                             className='form-control'
                             onChange={onChange}
@@ -87,7 +87,7 @@ export const Register = () => {
                             type="email"
                             id='email'
                             name='email'
-                            placeholder="Enter your email"
+                            placeholder="Ingresá tu email"
                             value={email}
                             className='form-control'
                             onChange={onChange}
@@ -99,7 +99,7 @@ export const Register = () => {
                             id='password'
                             name='password'
                             value={password}
-                            placeholder="Enter password"
+                            placeholder="Escribí una contraseña"
                             className='form-control'
                             onChange={onChange}
                         />
@@ -110,13 +110,13 @@ export const Register = () => {
                             id='passwordCheck'
                             name='passwordCheck'
                             value={passwordCheck}
-                            placeholder="Confirm password"
+                            placeholder="Repetí la contraseña"
                             className='form-control'
                             onChange={onChange}
                         />
                     </div>
                     <div className='form-group'>
-                        <button type='submit' className='btn btn-block'>Submit</button>
+                        <button type='submit' className='btn btn-block'>Registrarme</button>
                     </div>
                 </form>
             </section>

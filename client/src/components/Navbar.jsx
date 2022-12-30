@@ -24,7 +24,9 @@ export const Navbar = () => {
     return (
         <div className='navbar'>
             <div className='logo'>
-                <Link to='/'>Intro</Link>
+                <Link to='/'>
+                    <img src="http://hub2030.com/wp-content/uploads/2022/09/HUB_Logo_azul.png" alt="logo" />
+                </Link>
             </div>
             <ul>
                 {user ? (
@@ -41,7 +43,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <Link to='./register'>
-                                <FaUser /> Register
+                                <FaUser /> Registro
                             </Link>
                         </li>
                     </>

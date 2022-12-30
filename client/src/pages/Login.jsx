@@ -60,7 +60,7 @@ export const Login = () => {
                 <h1>
                     <FaSignInAlt /> Login
                 </h1>
-                <p>Login and start...</p>
+                <p>Iniciar sesión</p>
             </section>
             <section className='form'>
                 <form onSubmit={onSubmit}>
@@ -71,7 +71,7 @@ export const Login = () => {
                             id='email'
                             name='email'
                             value={email}
-                            placeholder="Enter your Email"
+                            placeholder="Escribí tu email"
                             onChange={onChange}
                         />
                     </div>
@@ -82,12 +82,12 @@ export const Login = () => {
                             id='password'
                             name='password'
                             value={password}
-                            placeholder="Enter password"
+                            placeholder="Escribí tu contraseña"
                             onChange={onChange}
                         />
                     </div>
                     <div className='form-group'>
-                        <button type='submit' className='btn btn-block'>Submit</button>
+                        <button type='submit' className='btn btn-block'>Ingresar</button>
                     </div>
                 </form>
             </section>
